@@ -1,0 +1,24 @@
+<br>
+<div id="pageContainer" class="top-content">
+    <section id="search" class=" text-center">
+        <div class="container">
+            <h4 class="heading1">Explore Our Classes</h4>
+            <p class="heading">
+
+                All classes are taught by experienced professionals providing a positive and challenging program for
+                every
+
+                student.
+            </p>
+            <p>
+                <select id="event" autofocus ng-model="selectedItem" (change)="updateSearchResult($event)">
+                    <option value="">Select Class</option>
+                    <option *ngFor="let org of orgs" value="{{org.OrganizationId}}">{{org.AcademyName}}</option>
+                    <option value="viewAllEvent">View All</option>
+                </select>
+            </p>
+            <app-add-group *ngIf="displayAddGroup()" (messageEvent)="receiveMessage($event)" ></app-add-group>
+        </div>
+        <app-list-group ></app-list-group>
+    </section>
+</div>
